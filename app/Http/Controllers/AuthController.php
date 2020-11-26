@@ -5,18 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReCaptchataTestFormRequest;
+use App\Http\Requests\FeedbackRequest;
+
 
 use Validator;
 use App\Models\User;
 
-class AuthController extends Controller
+class AuthController extends Controller   
 {
     public function register(Request $request)
     {
         $v = Validator::make($request->all(), [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
-            'password'  => 'required|min:3|confirmed',
+            'password'  => 'required|min:3|confirmed'
         ]);
         if ($v->fails())
         {

@@ -17,7 +17,23 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-       
+       <!-- this class is for error IN FORM  -->
+		<style>
+          small {          
+	              color: red;
+               	display: none;
+                }
+          .mx_form_inv .mx_empty_filed ~ small {  
+	               display: block;
+                }
+          .mx_form_inv .mx_recaptcha_failed small {  
+	              display: block;
+              }
+
+          .passwords{
+              display:none
+            }
+</style>
     </head>
     <body>
     <!-- id="app"  take from  el: '#app', in app.js -->
@@ -29,5 +45,10 @@
 
        <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+
+<!-- RECAPTCH -->
+  <script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.js"></script>
+<!-- Minify -->
+<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
     </body>
 </html>
